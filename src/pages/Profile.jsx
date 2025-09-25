@@ -7,14 +7,14 @@ const Profile = () => {
   // Example user data (replace with real user info)
   const user = {
     name: "Varun Verma",
-    email: "varun@example.com",
+    email: "umangsoni409@gmail.com",
     profileImage: "https://i.pravatar.cc/150?img=12",
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
-      <div className="w-64 bg-white shadow-md p-6">
+      <div className="w-[25%] bg-white shadow-md p-6">
         <div className="flex items-center space-x-4">
           <img
             src={user.profileImage}
@@ -31,20 +31,20 @@ const Profile = () => {
 
         <div className="mt-8 space-y-4">
           <button
-            onClick={() => navigate("/orders")}
+            onClick={() => navigate("/")}
             className="w-full text-left px-4 py-2 rounded-lg hover:bg-red-100 text-gray-700 font-medium"
           >
             📦 My Orders
           </button>
           <button
-            onClick={() => navigate("/cart")}
+            onClick={() => navigate("/")}
             className="w-full text-left px-4 py-2 rounded-lg hover:bg-red-100 text-gray-700 font-medium"
             
           >
             🛒 My Cart
           </button>
           <button
-            onClick={() => navigate("/account")}
+            onClick={() => navigate("/")}
             className="w-full text-left px-4 py-2 rounded-lg hover:bg-red-100 text-gray-700 font-medium"
           >
             ⚙️ Account Settings
@@ -52,7 +52,7 @@ const Profile = () => {
           <button
             onClick={() => {
               localStorage.removeItem("token");
-              navigate("/login");
+              navigate("/");
             }}
             className="w-full text-left px-4 py-2 rounded-lg hover:bg-red-100 text-gray-700 font-medium"
           >
