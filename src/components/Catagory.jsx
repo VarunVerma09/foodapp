@@ -14,7 +14,7 @@ const Category = () => {
     const selectCategory = useSelector((state) => state.category.category)
 
     return (
-        <div className='flex mt-5 gap-2'>
+        <div className='flex mt-5 gap-2 overflow-x-auto scroll' style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
 
             <button
                 onClick={() => dispatch(setCategory("All"))}

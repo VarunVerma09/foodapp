@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
 import { useDispatch } from 'react-redux';
+import { AiOutlineClose } from "react-icons/ai";
 import { searchItems } from '../redux/SearchSlice';
 
 const Nav = () => {
@@ -44,13 +45,16 @@ const Nav = () => {
             {/* Mobile Dropdown Menu */}
             {isOpen && (
                 <div className="absolute top-0  left-0 w-full bg-white shadow-lg md:hidden ">
+                     <span className='absolute right-5 border-2 p-1 bg border-none top-5 rounded-lg cursor-pointer'>
+                                <AiOutlineClose onClick={()=>{setIsOpen(false)}}  className='text-white'/>
+                              </span>
                     <ul className="flex flex-col items-start px-6 py-4 gap-4 text-gray-700 font-medium">
-                        <li className="w-full"><Link to="/destinations" onClick={() => setIsOpen(false)}>Home</Link></li>
-                        <li className="w-full"><Link to="/bookings" onClick={() => setIsOpen(false)}>Profile</Link></li>
-                        <li className="w-full"><Link to="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link></li>
+                        <li className="w-full"><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+                        <li className="w-full"><Link to="/profile" onClick={() => setIsOpen(false)}>Profile</Link></li>
+                        <li className="w-full"><Link to="/contactus" onClick={() => setIsOpen(false)}>Contact Us</Link></li>
                         <li> <div className='flex  '>
-                            <input type="text" className="border-1 border-gray-300 px-3 rounded-lg outline-none mr-3" name="" id="" placeholder='Search' />
-                            <input type="button" className="border-1 border-gray-300 px-3 p-2 bg rounded-lg cursor-pointer" value="Search" /></div>
+                            <input type="text" onChange={(e) => dispatch(searchItems(e.target.value))} className="border-1 border-gray-300 px-3 rounded-lg outline-none mr-3" name="" id="" placeholder='Search' />
+                            <input type="button" className="border-1 border-gray-300 text-white px-3 p-2 bg rounded-lg cursor-pointer" value="Search" /></div>
                         </li>
                         <li className="w-full">
                             <select className="w-full border rounded px-2 py-1">

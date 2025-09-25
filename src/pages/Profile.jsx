@@ -14,7 +14,7 @@ const Profile = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
-      <div className="w-[25%] bg-white shadow-md p-6">
+      <div className="w-[40%] lg:w-[25%]  bg-white shadow-md p-6">
         <div className="flex items-center space-x-4">
           <img
             src={user.profileImage}
@@ -22,10 +22,10 @@ const Profile = () => {
             className="w-16 h-16 rounded-full border object-cover"
           />
           <div>
-            <h2 className="text-lg font-semibold text-gray-800">
+            <h2 className="text-sm font-semibold text-gray-800">
               {user.name}
             </h2>
-            <p className="text-sm text-gray-500">{user.email}</p>
+            <p className="text-sm hidden lg:block text-gray-500">{user.email}</p>
           </div>
         </div>
 
