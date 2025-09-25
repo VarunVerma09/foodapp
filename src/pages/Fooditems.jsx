@@ -5,7 +5,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 
 const Fooditems = () => {
-    const category = useSelector((state)=> state.category.category)
+    const category = useSelector((state)=> state.category.category);
+    const search = useSelector((state)=>state.search.search);
 const handleToast = (name) =>{
     toast.success(`Added ${name} To Cart`)
 }
@@ -18,9 +19,13 @@ const handleToast = (name) =>{
             <div className='flex flex-wrap justify-evenly px-10'>
                 {FoodData.filter((food)=>{
                     if(category === "All"){
-                        return food;
+                        return food.name.toLowerCase().includes(search.toLowerCase());
                     }else{
-                        return category === food.category
+                        
+                   return  category === food.category && food.name.toLowerCase().includes(search.toLowerCase());
+                   
+
+
                     }
                 }).map((food)=>(<Foodcard key={food.id}
                         id={food.id}

@@ -3,9 +3,11 @@ import { AiOutlineClose } from "react-icons/ai";
 import ItemCard from './ItemCard';
 import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 const Cart = () => {
+  const navigate = useNavigate()
 
   const cartItems = useSelector(state => state.cart.cart);
 
@@ -48,9 +50,12 @@ const Cart = () => {
         <div className='fixed bottom-0 w-full px-5 py-3 bg-white shadow-t'>
           <h2 className='mb-3'>Items: <span>{totalqty}</span></h2>
           <h2 className='mb-3'>Total: <span>₹{totalPrice}</span></h2>
-          <button className='px-4 py-2 w-full font-bold text-white bg rounded-lg cursor-pointer h'>
+         
+          {cartItems.length > 0 ?  <button onClick={()=>navigate("/success")} className='px-4 py-2 w-full font-bold text-white bg rounded-lg cursor-pointer h'>
             Place Order
-          </button>
+          </button> :  <button  className='px-4 py-2 w-full font-bold text-white bg rounded-lg cursor-pointer h'>
+            Place Order
+          </button>}
         </div>
       </div>
 
