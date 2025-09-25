@@ -37,7 +37,7 @@ const Profile = () => {
             📦 My Orders
           </button>
           <button
-            onClick={() => }
+            onClick={() => navigate("/cart")}
             className="w-full text-left px-4 py-2 rounded-lg hover:bg-red-100 text-gray-700 font-medium"
             
           >
