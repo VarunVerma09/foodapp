@@ -4,8 +4,8 @@
 }
 .tc {
   background: linear-gradient(to right, rgb(236, 109, 130), rgb(239, 13, 51));
-  -webkit-background-clip: text; /* Safari/Chrome */
-  -webkit-text-fill-color: transparent; /* Safari/Chrome */
-  background-clip: text; /* Standard */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; 
   color: transparent;
 }
