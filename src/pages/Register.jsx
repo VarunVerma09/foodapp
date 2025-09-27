@@ -35,7 +35,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="Enter username"
-              className="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              className="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-1 focus:ring-red-500 outline-none"
               {...register("username", { required: "Username is required" })}
             />
             {errors.username && (
@@ -51,7 +51,7 @@ const Register = () => {
             <input
               type="email"
               placeholder="Enter email"
-              className="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              className="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-1 focus:ring-red-500 outline-none"
               {...register("email", {
                 required: "Email is required",
                 pattern: {
@@ -73,7 +73,7 @@ const Register = () => {
             <input
               type="password"
               placeholder="Enter password"
-              className="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              className="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-1 focus:ring-red-500 outline-none"
               {...register("password", {
                 required: "Password is required",
                 minLength: { value: 6, message: "Minimum 6 characters" },
@@ -86,7 +86,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+            className="w-full bg text-white py-2 rounded-lg hover:bg-300transition"
           >
             Register
           </button>
@@ -94,7 +94,7 @@ const Register = () => {
 
         <p className="text-sm text-center mt-4 text-gray-600">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-600 hover:underline">
+          <a href="/login" className="text-red-600 hover:underline">
             Login
           </a>
         </p>

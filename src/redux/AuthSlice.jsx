@@ -28,9 +28,9 @@ const userSlice = createSlice({
        
 
       if (foundUser) {
-        state.currentUser = foundUser; // ✅ successful login
+        state.currentUser = foundUser; 
       } else {
-        state.currentUser = null; // ❌ wrong details
+        state.currentUser = null;
       }
     },
 
