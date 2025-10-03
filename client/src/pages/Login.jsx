@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 import { login } from "../redux/AuthSlice";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
-  const currentUser = useSelector((state) => state.auth.currentUser);
+
 
   const {
     register,
@@ -17,14 +17,12 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    dispatch(login(data));
+    axios.post("http://localhost:8800/api/v1/auth/login",data)
+    navigate("/");
   };
 
-  useEffect(() => {
-    if (currentUser) {
-      navigate("/"); // redirect to home
-    }
-  }, [currentUser, navigate]);
+
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">

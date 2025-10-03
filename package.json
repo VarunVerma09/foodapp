@@ -6,12 +6,16 @@
   "type": "module",
   "scripts": {
     "start": "nodemon script.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm start\" \"npm run dev --prefix client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.12.2",
     "bcrypt": "^6.0.0",
+    "concurrently": "^9.2.1",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",

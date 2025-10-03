@@ -1,11 +1,10 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { register as registerUser } from "../redux/AuthSlice";
+import axios from "axios";
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const {
@@ -16,7 +15,8 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    dispatch(registerUser(data));
+    axios.post("http://localhost:8800/api/v1/auth/register",data)
+  
     console.log("User Registered:", data);
     navigate("/login"); // redirect to login after registration
   };
@@ -36,10 +36,10 @@ const Register = () => {
               type="text"
               placeholder="Enter username"
               className="mt-1 w-full px-4 py-2 border rounded-lg focus:ring-1 focus:ring-red-500 outline-none"
-              {...register("username", { required: "Username is required" })}
+              {...register("name", { required: "name is required" })}
             />
-            {errors.username && (
-              <p className="text-red-500 text-sm mt-1">{errors.username.message}</p>
+            {errors.name && (
+              <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
             )}
           </div>
 

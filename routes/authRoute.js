@@ -14,7 +14,9 @@ router.post('/login',loginController);
 router.post('/test',requireSignIn , isAdmin,testController);
 
 
-
+router.post("/api/v1/auth/register", (req, res) => {
+  console.log("Received body:", req.body);  // 👀 Check this
+});
 
 
 
