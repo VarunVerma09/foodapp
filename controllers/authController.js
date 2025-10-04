@@ -131,3 +131,12 @@ try {
   })
 }
 } 
+export const uploadController = async (req,res) =>{
+  try {
+    
+  } catch (error) {
+    console.log(error);
+    
+    
+  }
+}

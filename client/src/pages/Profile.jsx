@@ -1,15 +1,36 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const navigate = useNavigate();
+  const [user, setUser]=useState({
+    name: "",
+  email: "",
+  profileImage: "https://i.pravatar.cc/150?img=12",
+  })
 
+
+ useEffect(()=>{
+    const userData = localStorage.getItem("user"); // get string from localStorage
+    
+    if (userData) {
+      const parsedUser = JSON.parse(userData); // convert to object
+      console.log(parsedUser);
+
+      setUser({
+        name: parsedUser.user.name,
+        email: parsedUser.user.email,
+        profileImage: parsedUser.profileImage || "https://i.pravatar.cc/150?img=12",
+      });
+    }
+ },[])
  
-  const user = {
-    name: "Varun Verma",
-    email: "umangsoni409@gmail.com",
-    profileImage: "https://i.pravatar.cc/150?img=12",
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigate("/login");
   };
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex">

@@ -10,6 +10,7 @@ import ContactUs from "./pages/ContactUs";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Upload from "./pages/Upload";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -19,6 +20,8 @@ root.render(
       <Routes>
         <Route path="/register" element={<Register/>}></Route>
     <Route path="/login" element={<Login/>}></Route> 
+    <Route path="/upload" element={<Upload/>}></Route> 
+
         <Route path="/" element={<Home />} />
         <Route path="/success" element={<Success />} />
         <Route path="/contactus" element={<ContactUs />} />

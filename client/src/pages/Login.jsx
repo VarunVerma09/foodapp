@@ -16,11 +16,17 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    axios.post("http://localhost:8800/api/v1/auth/login",data)
-    navigate("/");
-  };
-
+const onSubmit = async (data) => {
+  try {
+    const res = await axios.post("http://localhost:8800/api/v1/auth/login", data);
+   
+    localStorage.setItem("user", JSON.stringify(res.data));
+    console.log("User logged in:", res.data);
+    navigate('/')
+  } catch (err) {
+    console.error(err);
+  }
+};
 
 
 

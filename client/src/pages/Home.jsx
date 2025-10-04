@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Nav from '../components/Nav';
 import { HiH1 } from 'react-icons/hi2';
 import Catagory from '../components/Catagory';
 import Fooditems from './Fooditems';
 import Cart from '../components/Cart';
+import axios from 'axios';
 
 
 
 const Home = () => {
+   useEffect(()=>{
+   const res = axios.get("client/public/images/uploads");
+   console.log(res);
    
+   })
 
     return (
        <>
