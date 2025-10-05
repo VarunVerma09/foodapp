@@ -3,10 +3,13 @@ import axios from "axios";
 import { login } from "../redux/AuthSlice";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Nav from "../components/Nav";
+import { useSelector,useDispatch } from "react-redux";
 
 const Login = () => {
-
+  const status = useSelector((state)=>state.auth.user)
   const navigate = useNavigate();
+  const dispatch = useDispatch()
 
 
 
@@ -22,7 +25,8 @@ const onSubmit = async (data) => {
    
     localStorage.setItem("user", JSON.stringify(res.data));
     console.log("User logged in:", res.data);
-    navigate('/')
+    dispatch(login(res.data));
+  navigate("/");
   } catch (err) {
     console.error(err);
   }
@@ -31,6 +35,8 @@ const onSubmit = async (data) => {
 
 
   return (
+      <>
+      <Nav/>
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
@@ -70,6 +76,7 @@ const onSubmit = async (data) => {
 
           <button
             type="submit"
+            onClick={()=>dispatch(login())}
             className="w-full bg text-white py-2 rounded-lg hover:bg-500 transition"
           >
             Login
@@ -84,6 +91,8 @@ const onSubmit = async (data) => {
         </p>
       </div>
     </div>
+  </>
+
   );
 };
 

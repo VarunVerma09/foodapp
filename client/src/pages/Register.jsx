@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form"
 import { useNavigate } from "react-router-dom";
+import Nav from "../components/Nav";
 
 const Register = () => {
 
@@ -22,6 +23,8 @@ const Register = () => {
   };
 
   return (
+    <>
+    <Nav/>
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center mb-6">Create Account</h2>
@@ -100,6 +103,7 @@ const Register = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 

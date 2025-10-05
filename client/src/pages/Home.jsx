@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const Home = () => {
    useEffect(()=>{
-   const res = axios.get("client/public/images/uploads");
+   const res = axios.get("/api/v1/auth/upload");
    console.log(res);
    
    })
