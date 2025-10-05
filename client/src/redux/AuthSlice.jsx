@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Navigate } from "react-router";
 
 const initialState = {
   currentUser: null,
@@ -15,9 +16,12 @@ const AuthSlice = createSlice({
       localStorage.setItem("user", JSON.stringify(action.payload)); // optional: persist
     },
     logout: (state) => {
+    
       state.currentUser = null;
       state.isLoggedIn = false;
       localStorage.removeItem("user");
+    
+
     },
   },
 });

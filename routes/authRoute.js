@@ -1,8 +1,10 @@
 import express from "express";
-import { registerController,loginController,testController, isAdmin,uploadController } from '../controllers/authController.js'
+import { registerController,loginController,testController, isAdmin,uploadController,logoutController } from '../controllers/authController.js'
 import { requireSignIn } from "../middleware/authMidd.js";
 import Post from '../models/postModel.js'
 import upload from "../multer/upload.js";
+
+
 const router = express.Router()
 
 //register route
@@ -10,6 +12,10 @@ router.post('/register',registerController);
 
 //Login route
 router.post('/login',loginController);
+
+//Logout route 
+router.post('/logout',logoutController);
+
 
 //test route
 router.post('/test',requireSignIn , isAdmin,testController);

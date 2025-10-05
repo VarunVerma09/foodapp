@@ -1,8 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/AuthSlice";
+import Nav from "../../components/Nav";
 
 const Profile = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser]=useState({
     name: "",
@@ -26,13 +30,11 @@ const Profile = () => {
     }
  },[])
  
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    navigate("/login");
-  };
 
 
   return (
+    <>
+    <Nav/>
     <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
       <div className="w-[40%] lg:w-[25%]  bg-white shadow-md p-6">
@@ -71,10 +73,7 @@ const Profile = () => {
             ⚙️ Account Settings
           </button>
           <button
-            onClick={() => {
-              localStorage.removeItem("token");
-              navigate("/");
-            }}
+            onClick={() => dispatch(logout())}
             className="w-full text-left px-4 py-2 rounded-lg hover:bg-red-100 text-gray-700 font-medium"
           >
             🚪 Logout
@@ -102,6 +101,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

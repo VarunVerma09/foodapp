@@ -140,3 +140,21 @@ export const uploadController = async (req,res) =>{
     
   }
 }
+
+//logout controller
+
+export const logoutController = async (req,res) => {
+try {
+    res.status(200).send({
+      success: true,
+      message: "User logged out successfully",
+    });
+  } catch (error) {
+    console.log("Logout Error:", error);
+    res.status(500).send({
+      success: false,
+      message: "Error during logout",
+      error: error.message,
+    });
+  }
+}

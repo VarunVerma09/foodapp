@@ -19,6 +19,9 @@ const Cart = () => {
     (total, item) => total + Number(item.price) * Number(item.Qty || 0),
     0
   );
+  const ordernow = () => {
+    navigate("/success");
+  };
 
   const [show, setShow] = useState(false);
   const [Payment, setPayment] = useState(false);
@@ -99,10 +102,22 @@ const Cart = () => {
           <div className="text-3xl text-center pt-5 font-bold ">
             Total Amount :{totalPrice}
           </div>
+          <div className=" flex fixed flex-col justify-items-start bottom-0 min-h-60 w-full gap-2 bg-gray-100 text-white font-bold px-5 rounded-tr-4xl  rounded-tl-4xl pt-5">
+            <div className="w-full bg h-[5vw] rounded-2xl flex items-center gap-3 p-3">
+              <input type="radio" className="align-middle text-white" name="payment" id="payment" />
+              <p className=" flex items-center">Cash On Delivery (COD)</p>
+            </div>
+             <div className="w-full bg h-[5vw] rounded-2xl flex items-center gap-3  p-3">
+              <input type="radio" className="align-middle" name="payment" id="payment" />
+              <p className=" flex items-center">Online (UPI)</p>
+            </div>
+          </div>
           <div className="px-5 fixed w-full bottom-2">
-           
-            <button onClick={()=>navigate("/")} className="px-4 py-2 w-full font-bold text-white bg rounded-lg cursor-pointer ">
-              Make Payment
+            <button
+              onClick={ordernow}
+              className="px-4 py-2 w-full font-bold text-white bg rounded-lg cursor-pointer "
+            >
+              Place Order
             </button>
           </div>
         </div>
