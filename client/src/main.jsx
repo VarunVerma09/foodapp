@@ -14,11 +14,28 @@ import Upload from "./pages/Upload";
 import Profile from "./pages/protected/Profile";
 import ProtectedRoute from "./pages/protected/ProtectedRoute";
 
+import Myorders from "./pages/Myorders";
+import AccountSetting from "./pages/AccountSetting";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>   
+          }
+        >
+        
+        <Route path="/profile/myorders" element={<Myorders />}></Route>
+        <Route path="/profile/account-settings" element={<AccountSetting />}></Route>
+
+
+        </Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/upload" element={<Upload />}></Route>
@@ -26,14 +43,6 @@ root.render(
         <Route path="/" element={<Home />} />
         <Route path="/success" element={<Success />} />
         <Route path="/contactus" element={<ContactUs />} />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <Profile />
-            </ProtectedRoute>
-          }
-        />
       </Routes>
     </BrowserRouter>
   </Provider>

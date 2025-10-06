@@ -13,7 +13,7 @@ const AuthSlice = createSlice({
     login: (state, action) => {
       state.currentUser = action.payload; // backend user
       state.isLoggedIn = true;
-      localStorage.setItem("user", JSON.stringify(action.payload)); // optional: persist
+      localStorage.setItem("user", JSON.stringify(action.payload));
     },
     logout: (state) => {
     
